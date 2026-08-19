@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx80p6rbwrjdy"]
+
+[ext_resource type="Script" uid="uid://k2oxirkl4b31" path="res://handle_input.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 48.0
+offset_top = 111.0
+offset_right = 560.0
+offset_bottom = 305.0
+placeholder_text = "TESTING TESTING"
+script = ExtResource("1_wtcfe")
+
+[node name="Camera2D" type="Camera2D" parent="."]

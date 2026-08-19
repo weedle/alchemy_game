@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddd3bb88ns8lt"]
+
+[ext_resource type="Texture2D" uid="uid://cc01i82v57ib1" path="res://Sprite-0002.png" id="1_q5e70"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxdql"]
+texture = ExtResource("1_q5e70")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qyljj"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_pxdql")
+
+[node name="Village" type="Node2D"]
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Floor"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/RigidBody2D"]
+position = Vector2(165, 60)
+polygon = PackedVector2Array(-165, -9, 997, -9, 997, 25, -167, 25)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_qyljj")

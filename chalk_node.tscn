@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ipsn7s7fcg7"]
+
+[ext_resource type="Texture2D" uid="uid://t47fourbh25m" path="res://chalk.png" id="1_8nuob"]
+
+[node name="ChalkNode" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8nuob")
