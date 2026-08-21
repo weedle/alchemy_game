@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t47fourbh25m"
-path="res://.godot/imported/chalk.png-4899227ecaa75e901139152b84bf0990.ctex"
+uid="uid://cmla2k26u64k6"
+path="res://.godot/imported/alchemy_oc.png-762cde634ca8a8fea25d50d414cbf362.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chalk.png"
-dest_files=["res://.godot/imported/chalk.png-4899227ecaa75e901139152b84bf0990.ctex"]
+source_file="res://assets/alchemy_oc.png"
+dest_files=["res://.godot/imported/alchemy_oc.png-762cde634ca8a8fea25d50d414cbf362.ctex"]
 
 [params]
 
