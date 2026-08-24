@@ -1,14 +1,14 @@
-[gd_scene load_steps=21 format=4 uid="uid://ddd3bb88ns8lt"]
+[gd_scene load_steps=21 format=4 uid="uid://ch2lr5ytulaj4"]
 
-[ext_resource type="Texture2D" uid="uid://cc01i82v57ib1" path="res://assets/terrain.png" id="1_q5e70"]
-[ext_resource type="Texture2D" uid="uid://cj4oauu1x5nt7" path="res://assets/oc_idle.png" id="2_pxdql"]
-[ext_resource type="Script" uid="uid://cqadgpoya2kif" path="res://main_character.gd" id="2_qyljj"]
+[ext_resource type="Texture2D" uid="uid://cc01i82v57ib1" path="res://assets/terrain.png" id="1_6qm53"]
+[ext_resource type="Script" uid="uid://cqadgpoya2kif" path="res://main_character.gd" id="2_gx3gs"]
+[ext_resource type="Texture2D" uid="uid://cj4oauu1x5nt7" path="res://assets/oc_idle.png" id="3_x486i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qyljj"]
 bounce = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxdql"]
-texture = ExtResource("1_q5e70")
+texture = ExtResource("1_6qm53")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -168,51 +168,51 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_pxdql")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pxdql"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qyljj"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jak2h"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wybox"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5gs"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efnqa"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyni6"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1lbn"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ydvt"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bixrm"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmj1j"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83oyx"]
-atlas = ExtResource("2_pxdql")
+atlas = ExtResource("3_x486i")
 region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_efnqa"]
@@ -274,12 +274,7 @@ position = Vector2(289, 482)
 zoom = Vector2(2, 2)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("2_qyljj")
-run_speed = null
-acceleration = null
-deceleration = null
-jump_speed = null
-gravity = null
+script = ExtResource("2_gx3gs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(260, 440)
