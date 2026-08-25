@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cx80p6rbwrjdy"]
 
-[ext_resource type="Script" uid="uid://k2oxirkl4b31" path="res://handle_input.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://k2oxirkl4b31" path="res://alchemy_grading.gd" id="1_wtcfe"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,3 +13,15 @@ placeholder_text = "TESTING TESTING"
 script = ExtResource("1_wtcfe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+default_color = Color(0, 1, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="."]
+default_color = Color(1, 1, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="."]
+default_color = Color(1, 1, 0, 1)
