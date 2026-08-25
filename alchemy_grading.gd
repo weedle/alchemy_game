@@ -16,6 +16,11 @@ var line1: Line2D = null
 var line2: Line2D = null
 var line3: Line2D = null
 var line4: Line2D = null
+var line5: Line2D = null
+
+var first_line_of_circle_grade: bool = true
+
+var do_lines: bool = true
 
 func _input(e: InputEvent):
 	var pos = get_global_mouse_position()
@@ -25,14 +30,21 @@ func _input(e: InputEvent):
 			if !is_pressed:
 				mouse_down_dist = 0
 				mouse_down_pos = pos
+				for chalk_node in chalk_nodes:
+					chalk_node.queue_free()
+				chalk_nodes = []
+				for line in [line1, line2, line3, line4, line5]:
+					if line != null:
+						line.clear_points()
 			else:
 				var points: Array[Vector2] = []
 				for chalk_node in chalk_nodes:
 					points.append(chalk_node.position)
-				grade_circle(points)
-				for chalk_node in chalk_nodes:
-					chalk_node.queue_free()
-				chalk_nodes = []
+				if len(points) > 3:
+					if dist_between_points(points[0], points[len(points) - 1]) < 50:
+						grade_circle(points)
+					else:
+						grade_line(points)
 					
 			print(prefix + str(pos))
 			is_pressed = e.pressed
@@ -61,35 +73,53 @@ func _handle_mouse_long_click(pos: Vector2, msec: int) -> void:
 func handle_mouse_drag():
 	print();
 	
+func dist_between_points(p1: Vector2, p2: Vector2) -> float:
+	return sqrt((p1.y - p2.y)**2 + (p1.x - p2.x)**2)
+	
+# get the slope and intercept of the line connecting two points
+# return as a Vector2 like [slope, intercept]
+func get_slope_and_intercept(p1: Vector2, p2: Vector2) -> Vector2:
+	var slope = (p1.y - p2.y) / (p1.x - p2.x)
+	var intercept = (p1.y + p2.y - slope * (p1.x + p2.x)) / 2
+	
+	print("with points ", p1, " and ", p2, " slope is ", slope, " and intercept is ", intercept)
+	
+	return Vector2(slope, intercept)
+	
 # Given two points, find the line that perfectly bisects the line connecting them
 # Why do we have this? Because this way, we take three points from a circle,
 # find where the bisecting lines intersect, and that's our circle center
 # Then we can average out the distances to see how good the rest of the circle points are
 # return value is slope as x and intercept as y
 func find_bisecting_line(p1: Vector2, p2: Vector2) -> Vector2:
-	
-	#if line1 == null:
-		#line1 = get_parent().get_child(2)
-		#line1.add_point(p1)
-		#line1.add_point(p2)
-	#else:
-		#line2 = get_parent().get_child(3)
-		#line2.add_point(p1)
-		#line2.add_point(p2)
-		#line1 = null
+	if do_lines:
+		if first_line_of_circle_grade:
+			line1 = get_parent().get_child(2)
+			line1.clear_points()
+			line1.add_point(p1)
+			line1.add_point(p2)
+		else:
+			line2 = get_parent().get_child(3)
+			line2.clear_points()
+			line2.add_point(p1)
+			line2.add_point(p2)
 		
 	var slope = (p1.x - p2.x) / (p2.y - p1.y)
 	var intercept = (p1.y + p2.y) / 2 - (p1.x - p2.x) * ((p1.x + p2.x) / 2) / (p2.y - p1.y)
 	
-	#if line3 == null:
-		#line3 = get_parent().get_child(4)
-		#line3.add_point(Vector2(-400, -400 * slope + intercept))
-		#line3.add_point(Vector2(400, 400 * slope + intercept))
-	#else:
-		#line4 = get_parent().get_child(5)
-		#line4.add_point(Vector2(-400, -400 * slope + intercept))
-		#line4.add_point(Vector2(400, 400 * slope + intercept))
-		#line3 = null
+	if do_lines:
+		if first_line_of_circle_grade:
+			line3 = get_parent().get_child(4)
+			line3.clear_points()
+			line3.add_point(Vector2(-400, -400 * slope + intercept))
+			line3.add_point(Vector2(400, 400 * slope + intercept))
+			first_line_of_circle_grade = false
+		else:
+			line4 = get_parent().get_child(5)
+			line4.clear_points()
+			line4.add_point(Vector2(-400, -400 * slope + intercept))
+			line4.add_point(Vector2(400, 400 * slope + intercept))
+			first_line_of_circle_grade = true
 		
 	
 	return Vector2(slope, intercept)
@@ -98,7 +128,6 @@ func sum(values: Array[float]) -> float:
 	var total: float = 0
 	for val in values:
 		total += val
-		print(total, val)
 	print("total is ", " ", total)
 	return total
 
@@ -134,10 +163,10 @@ func grade_circle(points: Array[Vector2]) -> int:
 	var distances: Array[float] = []
 	var deviations: Array[float] = []
 	for point in points:
-		distances.append(sqrt((point.y - circle_center.y)**2 + (point.x - circle_center.x)**2))
+		distances.append(dist_between_points(point, circle_center))
 	var avg_dist = sum(distances)/len(distances)
 	for dist in distances:
-		print("diff in distances ", dist, " - ", avg_dist, " = ", dist - avg_dist)
+		#print("diff in distances ", dist, " - ", avg_dist, " = ", dist - avg_dist)
 		deviations.append(abs(dist - avg_dist))
 		
 	var avg_dev = sum(deviations)/len(deviations)
@@ -153,7 +182,7 @@ func grade_circle(points: Array[Vector2]) -> int:
 	else:
 		deviation_points = -10
 		
-	var final_dist = sqrt((points[0].y - points[len(points) - 1].y)**2 + (points[0].x - points[len(points) - 1].x)**2)
+	var final_dist = dist_between_points(points[0], points[len(points) - 1])
 	print("distance between first and last point ", final_dist)
 	
 	var final_dist_points = 0
@@ -194,5 +223,57 @@ func grade_circle(points: Array[Vector2]) -> int:
 		self.text = "GRADE C CIRCLE"
 	else:
 		self.text = "SHIT CIRCLE"
+	
+	return 0
+
+
+func grade_line(points: Array[Vector2]) -> int:
+	if(len(points) < 5):
+		return 0
+		
+	# Find the rough slope and intercept of the line by using a few key points
+	# Look I'm not manually writing a least squares linear regression in gdscript ok
+	var p1: Vector2 = points[len(points) / 5]
+	var p2: Vector2 = points[2 * len(points) / 5]
+	var p3: Vector2 = points[3 * len(points) / 5]
+	var p4: Vector2 = points[4 * len(points) / 5]
+	
+	var vals1: Vector2 = get_slope_and_intercept(p1, p2)
+	var vals2: Vector2 = get_slope_and_intercept(p2, p3)
+	var vals3: Vector2 = get_slope_and_intercept(p3, p4)
+	
+	var avg_slope: float = (vals1.x + vals2.x + vals3.x) / 3
+	var avg_intercept: float = (vals1.y + vals2.y + vals3.y) / 3
+	
+	var deviations: Array[float] = []
+	
+	# Now, for each point in the array, figure out how far it is from our expected line
+	for point in points:
+		deviations.append(abs(avg_slope * point.x + avg_intercept - point.y))
+		#print("added deviation ", abs(avg_slope * point.x + avg_intercept - point.y))
+	
+	var avg_deviation: float = sum(deviations)/len(deviations)
+	print("average deviation ", avg_deviation)
+	
+	if avg_deviation > 40:
+		return 0
+	
+	line5 = get_parent().get_child(6)
+	line5.clear_points()
+	line5.add_point(Vector2(points[0].x, points[0].x * avg_slope + avg_intercept))
+	line5.add_point(Vector2(points[len(points) - 1].x, points[len(points) - 1].x * avg_slope + avg_intercept))
+	
+	if avg_deviation < 2:
+		self.text = "GRADE S LINE"
+	elif avg_deviation < 5:
+		self.text = "GRADE A LINE"
+	elif avg_deviation < 10:
+		self.text = "GRADE B LINE"
+	elif avg_deviation < 20:
+		self.text = "GRADE C LINE"
+	else:
+		self.text = "SHIT LINE"
+		
+		
 	
 	return 0
