@@ -41,7 +41,7 @@ func _input(e: InputEvent):
 				for chalk_node in chalk_nodes:
 					points.append(chalk_node.position)
 				if len(points) > 3:
-					if dist_between_points(points[0], points[len(points) - 1]) < 50:
+					if Utils.dist_between_points(points[0], points[len(points) - 1]) < 50:
 						grade_circle(points)
 					else:
 						grade_line(points)
@@ -72,9 +72,6 @@ func _handle_mouse_long_click(pos: Vector2, msec: int) -> void:
 	
 func handle_mouse_drag():
 	print();
-	
-func dist_between_points(p1: Vector2, p2: Vector2) -> float:
-	return sqrt((p1.y - p2.y)**2 + (p1.x - p2.x)**2)
 	
 # get the slope and intercept of the line connecting two points
 # return as a Vector2 like [slope, intercept]
@@ -163,7 +160,7 @@ func grade_circle(points: Array[Vector2]) -> int:
 	var distances: Array[float] = []
 	var deviations: Array[float] = []
 	for point in points:
-		distances.append(dist_between_points(point, circle_center))
+		distances.append(Utils.dist_between_points(point, circle_center))
 	var avg_dist = sum(distances)/len(distances)
 	for dist in distances:
 		#print("diff in distances ", dist, " - ", avg_dist, " = ", dist - avg_dist)
@@ -182,7 +179,7 @@ func grade_circle(points: Array[Vector2]) -> int:
 	else:
 		deviation_points = -10
 		
-	var final_dist = dist_between_points(points[0], points[len(points) - 1])
+	var final_dist = Utils.dist_between_points(points[0], points[len(points) - 1])
 	print("distance between first and last point ", final_dist)
 	
 	var final_dist_points = 0

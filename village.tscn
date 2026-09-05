@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=4 uid="uid://ddd3bb88ns8lt"]
+[gd_scene load_steps=23 format=4 uid="uid://ddd3bb88ns8lt"]
 
-[ext_resource type="Texture2D" uid="uid://cc01i82v57ib1" path="res://assets/terrain.png" id="1_q5e70"]
-[ext_resource type="Texture2D" uid="uid://cj4oauu1x5nt7" path="res://assets/oc_idle.png" id="2_pxdql"]
+[ext_resource type="Texture2D" uid="uid://cc01i82v57ib1" path="res://assets/sprites/terrain.png" id="1_q5e70"]
+[ext_resource type="Texture2D" uid="uid://cj4oauu1x5nt7" path="res://assets/sprites/oc_idle.png" id="2_pxdql"]
 [ext_resource type="Script" uid="uid://cqadgpoya2kif" path="res://main_character.gd" id="2_qyljj"]
+[ext_resource type="PackedScene" uid="uid://csdt21ntln38o" path="res://item_rose.tscn" id="4_wybox"]
+[ext_resource type="PackedScene" uid="uid://bc48hkdauag7g" path="res://inventory.tscn" id="5_6t5gs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qyljj"]
 bounce = 1.0
@@ -273,14 +275,22 @@ position = Vector2(289, 482)
 zoom = Vector2(2, 2)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(300, 500)
 script = ExtResource("2_qyljj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(260, 440)
 sprite_frames = SubResource("SpriteFrames_efnqa")
 animation = &"new_animation"
 autoplay = "new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(261, 441)
 shape = SubResource("CapsuleShape2D_pxdql")
+
+[node name="Node2D" parent="." instance=ExtResource("4_wybox")]
+position = Vector2(540, 533)
+
+[node name="InventoryControl" parent="." instance=ExtResource("5_6t5gs")]
+offset_left = 5.0
+offset_top = 325.0
+offset_right = 5.0
+offset_bottom = 325.0

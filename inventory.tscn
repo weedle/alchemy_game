@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc48hkdauag7g"]
+
+[ext_resource type="Texture2D" uid="uid://om21wj1wvba3" path="res://assets/items/item_basic.png" id="1_pohso"]
+
+[node name="InventoryControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemSlot1" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot2" type="Sprite2D" parent="."]
+position = Vector2(60, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot3" type="Sprite2D" parent="."]
+position = Vector2(100, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot4" type="Sprite2D" parent="."]
+position = Vector2(140, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot5" type="Sprite2D" parent="."]
+position = Vector2(180, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot6" type="Sprite2D" parent="."]
+position = Vector2(220, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot7" type="Sprite2D" parent="."]
+position = Vector2(260, 20)
+texture = ExtResource("1_pohso")
+
+[node name="ItemSlot8" type="Sprite2D" parent="."]
+position = Vector2(300, 20)
+texture = ExtResource("1_pohso")
