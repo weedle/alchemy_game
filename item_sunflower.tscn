@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3208myj0st6l"]
+
+[ext_resource type="Script" uid="uid://baaswvfx7xdhs" path="res://assets/items/item_sunflower.gd" id="1_8m1uc"]
+[ext_resource type="Texture2D" uid="uid://5s5yyq22cfbg" path="res://assets/items/wild_sunflower.png" id="1_brwcr"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8m1uc")
+metadata/isPickupable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_brwcr")

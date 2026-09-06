@@ -1,4 +1,4 @@
-class_name Item
+class_name ItemSlot
 
 var icon_location = "assets/icon_basic.png"
 var num = 1

@@ -1,13 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://csdt21ntln38o"]
 
 [ext_resource type="Texture2D" uid="uid://dgm71djgs7fc0" path="res://assets/items/wild_rose.png" id="1_6cn0q"]
-[ext_resource type="Script" uid="uid://bgfu1k0pmr8ub" path="res://item_pickupable.gd" id="2_ns5as"]
+[ext_resource type="Script" uid="uid://c8o2xtmvikfmj" path="res://assets/items/item_rose.gd" id="1_ns5as"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("2_ns5as")
-metadata/ItemType = "rose"
-metadata/is_pickupable = true
-metadata/Capacity = 3
+script = ExtResource("1_ns5as")
+metadata/isPickupable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6cn0q")

@@ -1,10 +1,16 @@
 extends Item
 
 class_name ItemRose
-
-func execute():
-	super()
-
+static var item_type = "rose"
+static var icon_location = "assets/items/item_rose.png"
+var num = 3
 func _init():
-	self.num = 1
-	self.icon_location = "assets/item_rose.png"
+	pass
+
+func pickup():
+	num -= 1
+	print("An item has been picked! There are " + str(num) + " left")
+	if num > 0:
+		set_meta("NumLeft", num)
+	else:
+		queue_free()

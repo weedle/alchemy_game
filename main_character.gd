@@ -21,18 +21,14 @@ func _physics_process(delta: float) -> void:
 		var parent = get_parent()
 		if(parent):
 			for child_node : Node in parent.get_children():
-				for meta_key : String in child_node.get_meta_list():
-					if (meta_key == &"ItemType"):
-						var dist = Utils.dist_between_points(position, child_node.position)
-						print("found item ", int(dist), " away")
-						if dist < 20:
-							var numLeft = child_node.get_meta("Capacity")
-							if numLeft > 0:
-								inventory.add_item("rose")
-								numLeft -= 1
-								child_node.set_meta("Capacity", numLeft)
-							if numLeft <= 0:
-								child_node.queue_free()
+				var dist = Utils.dist_between_points(position, child_node.position)
+				if dist < reach:
+					for meta_key : String in child_node.get_meta_list():
+						if (meta_key == &"isPickupable"):
+							if (child_node.get_meta("isPickupable")):
+								print("found item ", int(dist), " away")
+								child_node.pickup()
+								inventory.add_item(child_node.item_type)
 
 	var rate := acceleration if direction != 0.0 else deceleration
 
