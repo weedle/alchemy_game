@@ -7,6 +7,12 @@ extends CharacterBody2D
 @export var gravity := 1200.0
 @export var reach := 10
 
+var inventory: Inventory
+
+func _ready() -> void:
+	inventory = get_node("/root/Village/PlayerCamera/InventoryControl")
+	inventory.init()
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	var target_speed := direction * run_speed
@@ -19,6 +25,8 @@ func _physics_process(delta: float) -> void:
 					if (meta_key == &"ItemType"):
 						var dist = Utils.dist_between_points(position, child_node.position)
 						print("found item ", int(dist), " away")
+						if dist < 20:
+							inventory.add_item("rose")
 	
 	var rate := acceleration if direction != 0.0 else deceleration
 	
