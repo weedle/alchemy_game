@@ -26,15 +26,21 @@ func _physics_process(delta: float) -> void:
 						var dist = Utils.dist_between_points(position, child_node.position)
 						print("found item ", int(dist), " away")
 						if dist < 20:
-							inventory.add_item("rose")
-	
+							var numLeft = child_node.get_meta("Capacity")
+							if numLeft > 0:
+								inventory.add_item("rose")
+								numLeft -= 1
+								child_node.set_meta("Capacity", numLeft)
+							if numLeft <= 0:
+								child_node.queue_free()
+
 	var rate := acceleration if direction != 0.0 else deceleration
-	
+
 	if is_on_floor() or (not is_on_floor() and direction != 0):
 		velocity.x = move_toward(velocity.x, target_speed, rate * delta)
 	else:
 		velocity.x = move_toward(velocity.x, target_speed, 0.2 * rate * delta)
-	
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():

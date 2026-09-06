@@ -7,6 +7,6 @@ func execute():
 	if num > 1:
 		print("Using item")
 		num -= 1 
-		
+
 func _init():
 	print("New Item!")

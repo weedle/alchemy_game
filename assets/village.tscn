@@ -284,16 +284,15 @@ offset_bottom = -156.0
 script = ExtResource("3_u5fln")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(200, 500)
 script = ExtResource("2_gx3gs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(260, 440)
 sprite_frames = SubResource("SpriteFrames_efnqa")
 animation = &"new_animation"
 autoplay = "new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(261, 441)
 shape = SubResource("CapsuleShape2D_pxdql")
 
 [node name="Rose" parent="." instance=ExtResource("5_x486i")]

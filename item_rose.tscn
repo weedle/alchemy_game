@@ -7,7 +7,7 @@
 script = ExtResource("2_ns5as")
 metadata/ItemType = "rose"
 metadata/is_pickupable = true
-metadata/harvest_count = 3
+metadata/Capacity = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6cn0q")

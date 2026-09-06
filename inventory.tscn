@@ -13,31 +13,111 @@ grow_vertical = 2
 [node name="ItemSlot1" type="Sprite2D" parent="."]
 position = Vector2(20, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot1"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot2" type="Sprite2D" parent="."]
 position = Vector2(60, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot2"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot3" type="Sprite2D" parent="."]
 position = Vector2(100, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot3"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot4" type="Sprite2D" parent="."]
 position = Vector2(140, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot4"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot5" type="Sprite2D" parent="."]
 position = Vector2(180, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot5"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot6" type="Sprite2D" parent="."]
 position = Vector2(220, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot6"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot7" type="Sprite2D" parent="."]
 position = Vector2(260, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot7"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
 
 [node name="ItemSlot8" type="Sprite2D" parent="."]
 position = Vector2(300, 20)
 texture = ExtResource("1_pohso")
+metadata/ItemType = ""
+metadata/NumHeld = 0
+
+[node name="NumHeld" type="RichTextLabel" parent="ItemSlot8"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 50.0
+text = "0
+"
