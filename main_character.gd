@@ -17,6 +17,8 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	var target_speed := direction * run_speed
 
+	var anim : AnimatedSprite2D = get_child(0)
+
 	if (Input.is_action_just_pressed("interact")):
 		var parent = get_parent()
 		if(parent):
@@ -41,4 +43,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_speed
+
+	if velocity.x > 0:
+		anim.play("walk_right")
+	elif velocity.x < 0:
+		anim.play("walk_left")
+	else:
+		anim.play("idle")
+
 	move_and_slide()
