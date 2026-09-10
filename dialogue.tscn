@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdfwse8k15hl"]
+
+[ext_resource type="Texture2D" uid="uid://di0smb1u6qbhw" path="res://assets/sprites/alchemy_oc_face.png" id="1_kp46k"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 519.0
+offset_right = 504.0
+offset_bottom = 647.0
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 118.0
+offset_bottom = 118.0
+color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[node name="Face" type="Sprite2D" parent="ColorRect/ColorRect"]
+position = Vector2(55, 54)
+scale = Vector2(3.1875, 3.1875)
+texture = ExtResource("1_kp46k")
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 10.0
+offset_right = 494.0
+offset_bottom = 118.0
+color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[node name="Dialogue" type="TextEdit" parent="ColorRect/ColorRect2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 362.0
+offset_bottom = 106.0
+text = "Something something
+second line
+third line of dialogue, yes yes very good"
