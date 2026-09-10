@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://ddd3bb88ns8lt"]
+[gd_scene load_steps=44 format=4 uid="uid://ddd3bb88ns8lt"]
 
 [ext_resource type="Texture2D" uid="uid://cc01i82v57ib1" path="res://assets/sprites/terrain.png" id="1_q5e70"]
 [ext_resource type="Texture2D" uid="uid://cj4oauu1x5nt7" path="res://assets/sprites/oc_idle.png" id="2_pxdql"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://xcf8h36mtbo3" path="res://assets/sprites/oc_walk_left.png" id="6_e1lbn"]
 [ext_resource type="Texture2D" uid="uid://b58xhghjior35" path="res://assets/sprites/oc_walk_right.png" id="7_2ydvt"]
 [ext_resource type="PackedScene" uid="uid://cdfwse8k15hl" path="res://dialogue.tscn" id="7_efnqa"]
+[ext_resource type="PackedScene" uid="uid://d3208myj0st6l" path="res://item_sunflower.tscn" id="8_2ydvt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qyljj"]
 bounce = 1.0
@@ -427,3 +428,9 @@ offset_left = -5.0
 offset_top = 131.0
 offset_right = -5.0
 offset_bottom = 131.0
+
+[node name="Node2D2" parent="." instance=ExtResource("8_2ydvt")]
+position = Vector2(45, 534)
+
+[node name="Node2D3" parent="." instance=ExtResource("4_wybox")]
+position = Vector2(388, 565)
